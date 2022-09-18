@@ -1,0 +1,10 @@
+.Board {
+    margin: 0 auto;
+    background-color: black;
+}
+
+.Board-Container {
+    display: 'flex';
+    flex-direction: 'row';
+    justify-content: "space-between";
+}
