@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import Cell from "../cell";
 import "./Board.css";
 
@@ -6,7 +6,7 @@ export type BoardType = {
     nRows: number | string;
     nCols: number | string;
     defaultOnPecentage: number | string;
-    setClickCount: React.SetStateAction<any>;
+    setClickCount: Dispatch<SetStateAction<null>>;
 };
 
 export interface BoardInterface {
@@ -18,7 +18,6 @@ const Board = ({ nRows, nCols, defaultOnPecentage, setClickCount }: BoardType) =
     const [gameWinner, setGameWinner] = useState<boolean | undefined>(false);
     const [boardState, setBoardState] = useState<boolean[][]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [gameOver, setGameOver] = useState(false)
 
 
     useEffect(() => {
@@ -60,9 +59,8 @@ const Board = ({ nRows, nCols, defaultOnPecentage, setClickCount }: BoardType) =
         setBoardState([...board]);
         if (gameWinner) {
             setLoading(true);
-            setGameOver(true);
         }
-        if (gameOver) {
+        if (gameWinner) {
             return <h1>Game Over!</h1>;
         }
     }
@@ -90,19 +88,16 @@ const Board = ({ nRows, nCols, defaultOnPecentage, setClickCount }: BoardType) =
         return tableBoard;
     }
     const tableBoard = generateBoard();
-    const seekThanos = () => {
-        console.log("The universe required correction.")
-        const board = boardState.map(row => row.map(col => false));
-        setBoardState([...board])
-        setGameOver(true);
-    }
+
     return (
-        <div className="board-container">
-            <table data-test-id="game-board" className="Board" >
+        <div className="flex flex-col mx-auto p-32">
+            <table data-test-id="game-board" className="min-w-fit min-h-fit" >
                 <tbody>{(nRows && nCols) && tableBoard}</tbody>
             </table>
-            <button style={{ backgroundColor: "seagreen", border: "white" }} onClick={seekThanos}>Click me to cheat</button>
-        </div>
+            <div className="container inline-flex items-center py-1">
+                <button className="bg-cyan-200 m-auto mt-2 py-1 px-2" >Click me to reset the universe</button>
+            </div>
+        </div >
     )
 
 }

@@ -1,0 +1,37 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "2022",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "overrides": [],
+    "plugins": [
+        "eslint-plugin-react",
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "react": {
+            "version": "18"
+        }
+    },
+    "rules": {
+        "quotes": [
+            "warn",
+            "double"
+        ],
+        "react/react-in-jsx-scope": "off"
+    }
+}
