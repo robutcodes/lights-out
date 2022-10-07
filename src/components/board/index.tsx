@@ -90,12 +90,12 @@ const Board = ({ nRows, nCols, defaultOnPecentage, setClickCount }: BoardType) =
     const tableBoard = generateBoard();
 
     return (
-        <div className="flex flex-col mx-auto p-32">
+        <div className="inset-y-0 mx-auto">
             <table data-test-id="game-board" className="min-w-fit min-h-fit" >
                 <tbody>{(nRows && nCols) && tableBoard}</tbody>
             </table>
             <div className="container inline-flex items-center py-1">
-                <button className="bg-cyan-200 m-auto mt-2 py-1 px-2" >Click me to reset the universe</button>
+                <button className="bg-cyan-200 m-auto mt-2 p-2.5 rounded-md border-color-black" >Click me to reset the universe</button>
             </div>
         </div >
     )

@@ -6,6 +6,9 @@ module.exports = {
       'transparent': 'transparent',
       'black': '#000000',
       'white': '#ffffff',
+      'minWidth': {
+        '1/2': '50%',
+      },
       'gray': {
         50: '#f9fafb',
         100: '#f3f4f6',
@@ -30,6 +33,13 @@ module.exports = {
         800: '#065f46',
         900: '#064e3b'
       }
+    },
+    flex: {
+      '1': '1 1 0%',
+      'auto': '1 1 auto',
+      'initial': '0 1 auto',
+      'none': 'none',
+      'inherit': 'inherit',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
